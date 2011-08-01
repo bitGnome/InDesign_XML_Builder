@@ -18,13 +18,5 @@ class Weight
   def ounces
     @weight_oz
   end
-
-  def domestic
-    formatWeight = @weight_g.to_s + " g (" + @weight_oz.to_s + " oz)"
-  end
-  
-   def euro
-    formatWeight = @weight_g.to_s + " g"
-  end
   
 end

@@ -3,36 +3,41 @@ class ParseThumbnail
   require 'csv'
   require_relative 'catalog_product'
   
+  attr_reader :products
+  
   def initialize(thumbnail_data)
     
-    @thumbnailProducts = Hash.new
+    @products = Hash.new
       
-    # Loop through the catalog thumbnail and create the thumbnailProducts Hash
-    CSV.foreach(thumbnail_data) do |row|
+    # Loop through the catalog thumbnail and create the products Hash
+    CSV.foreach(thumbnail_data) do | row |
       
       pageNum = row[0]
-      thumbnail_prodName = row[1];
-      season = row[2]
       styleNum = row[3]
       colorway = row[5]
-      
-      puts "styleNum : #{styleNum}"
+
+      # Pull in the colorway information if the Alpha supplied in the thumbNail does not exists set defaults
+      begin
+        colorList = row[7].downcase
+      rescue
+        colorList = "x"
+      end   
         
       # Check to see if the CatalogProduct was created
-      if (@thumbnailProducts.has_key?(styleNum.to_s))
+      if (@products.has_key?(styleNum.to_s))
         
-        @thumbnailProducts[styleNum.to_s].insertColorway(colorway, pageNum)
+        @products[styleNum.to_s].insertColorway(colorway, pageNum, colorList)
       
       # If the data is for "editorial don't create a CatalogProduct object
-      elsif (styleNum.to_s.downcase.match(/edit.+/) == nil)
-  
-        myObject = CatalogProduct.new(styleNum, season, thumbnail_prodName)
+      #elsif (styleNum.to_s.downcase.match(/edit.+/) == nil)
+      else
+        product = CatalogProduct.new(row)
         
         # Push the colorway into the @colorways instance variable
-        myObject.insertColorway(colorway, pageNum)
+        product.insertColorway(colorway, pageNum, colorList)
         
         # Store the object in catalogProducts
-        @thumbnailProducts[styleNum.to_s] = myObject
+        @products[styleNum.to_s] = product
   
       end
       
