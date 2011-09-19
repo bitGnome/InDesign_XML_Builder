@@ -14,7 +14,7 @@ class PlmData
     @plmHash = Hash.new
     @no_copy = false
     
-    latin_copy = "Ris volupta volore, con pe re, et eius, te odi quaturero blabo. Itati unt vid magnistem eos evelique pra veriasi taturectius. Tur rest, quiam, quundio. Et officiae volorem. Fuga. Ut pa parum hil ma veniatem. Uscil mos minctorrorum quin cusant, untius mi, si autem aut landa di ute quis irum qui occuptaspid ut pre et vollupissit hilique ped evel mintest iundiciam et iduci.  con vel dolore eum dio odolortie dignit digna facipis amet ullan vent nismodio commodolore feugiat adip ea atem etum dolor sent loboreros eu feugait velissed dolesecte do od esecte magna autatue essequi smolobo rperit aliqui tat. Do dipsuscin ut vel ea feugiam consequisim iriure magnim iuscinibh ex el diat fit. Made in Sed Min Ulla Faccum Dolore Vel Ulput Luptat Volessi Blan Agnibh Ero Od Dio Dolortio Dipit Laortionsed Ex Et Num Zzriureet."
+    latin_copy = "Ris volupta volore, con pe re, et eius, te odi quaturero blabo. Itati unt vid magnistem eos evelique pra veriasi taturectius. Tur rest, quiam, quundio. Et officiae volorem. Fuga. Ut pa parum hil ma veniatem. Uscil mos minctorrorum quin cusant, bh Ero Od Dio Dolortio Dipit Laortionsed Ex Eait velissed dolesecte do od esecte magna autatue essequi smolobo rperit aliqui tat. Do dipsuscin ut vel ea feugiam consequisim iriure magnim iuscinibh ex el diat fit. Made in Sed Min Ulla Faccum Dolore Vel Ulput Luptat Volessi Blan Agnibh Ero Od Dio Dolortio Dipit Laortionsed Ex Et Num Zzriureet."
     
     # The order of this data is dependant on your PLM view!
     # See the page http://creative.lostarrow.com/index.php?option=com_content&task=view&id=9&Itemid=9
@@ -26,7 +26,7 @@ class PlmData
     @plmHash[:sizeRange] = SizeRange.new(plmData[5])
     
     if plmData[6].to_s == ""
-      @plmHash[:productCopy] = @latin_copy
+      @plmHash[:productCopy] = latin_copy
       @no_copy = true
     else
       @plmHash[:productCopy] = plmData[6].to_s

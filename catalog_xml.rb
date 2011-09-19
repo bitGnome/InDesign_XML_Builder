@@ -21,7 +21,7 @@ if __FILE__ == $0
   print "Pull only Carry In Copy (y|n)? "
   carry_in_copy_answer = gets.chomp
   
-  if (carry_in_copy_answer.downcase == "y")
+  if (carry_in_copy_answer.downcase.include?("y"))
     
     print "Which Season (fall|spring)? "
     season_carry_in = gets.chomp.downcase
@@ -208,7 +208,6 @@ if __FILE__ == $0
     # Create the InDesign files
     FileUtils.mkdir("Catalog/#{pageNum}")
     
-    puts ("xmlBuilder.section : #{xmlBuilder.section}")
     # Check and see if the page is an editorial
     if (xmlBuilder.section =~ /edit/) then
       FileUtils.cp("./Template/editorial.indd", "Catalog/#{pageNum}/#{catalogName}_#{pageNum}.indd")

@@ -26,10 +26,16 @@ class BuildXml
         
         xml.Product( :type  => product.type ) do
           
-          clean_product_name = product.plm_data.plmHash[:productName].remove_PLM_corruption
+          if (product.plm_data.plmHash[:productName] == nil)
+            productName = product.thumbnail_prodName
+          else
+             productName = product.plm_data.plmHash[:productName]
+          end
+                     
+          clean_product_name = productName.remove_PLM_corruption
           xml.product_name    { |text| text << clean_product_name.encode_smart_quotes }
           xml.bugs            ( product.plm_data.plmHash[:bugInfo].getBugInfo )
-          
+                    
           if product.copy_type == "latin"
             catalog_copy = product.plm_data.plmHash[:latin_copy]
           else
@@ -76,7 +82,7 @@ class BuildXml
               featureColorName = "Not Found"
             end      
             
-            xml.name { |text| text << product.plm_data.plmHash[:productName].encode_smart_quotes }
+            xml.name { |text| text << clean_product_name.encode_smart_quotes }
             xml.colorAlpha ( product.feature_color )
             xml.colorNumber ( featureColorNum )
             xml.colorName ( featureColorName )

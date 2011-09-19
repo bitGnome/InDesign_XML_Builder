@@ -47,11 +47,8 @@ class ProductImagePull
             imageFound = true
             
           end
-          
         end
-        
       end
-      
     end
     
     return imageFound    

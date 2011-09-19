@@ -15,7 +15,14 @@ class CatalogProduct
     
     # Instance variables
     @pageNum = thumbnailRow[0]
-    @section = thumbnailRow[1]
+    
+    if thumbnailRow[1].to_s == ""
+      @section = "NO SECTION"
+    else
+      @section = thumbnailRow[1]
+    end
+    
+    @season = thumbnailRow[2] 
     @season = thumbnailRow[2]
     @styleNum = thumbnailRow[3]
     @thumbnail_prodName = thumbnailRow[4];
