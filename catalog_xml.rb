@@ -186,7 +186,7 @@ if __FILE__ == $0
       # Pull in the FPO if one exists
       findResult = catalogFPO.get_image(style_number,  product.feature_color, colorNum, false)
       unless findResult 
-        unless findResult then missing_images.puts "#{style_number} - #{product.feature_color}"  end
+        unless findResult then missing_images.puts "#{product.thumbnail_prodName} : #{style_number} - #{product.feature_color}"  end
       end 
     end
   end
