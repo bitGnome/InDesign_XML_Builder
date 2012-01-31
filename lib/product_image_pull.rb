@@ -7,6 +7,8 @@ class ProductImagePull
     
     @imagePathList = Array.new
     
+    puts "image_paths : #{image_paths}"
+    
     # Build the imagePathList based on the Array of directory paths passed in
     image_paths.each do | path |
       @imagePathList << buildFileList(path)
@@ -59,8 +61,6 @@ class ProductImagePull
   def buildFileList(filePath)
     
     resultList = Array.new
-    
-    #puts "path : #{path}"
     
     Find.find(filePath) do | f |
       

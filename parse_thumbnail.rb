@@ -22,7 +22,8 @@ class ParseThumbnail
       rescue
         colorList = "x"
       end   
-        
+      
+      
       # Check to see if the CatalogProduct was created
       if (@products.has_key?(styleNum.to_s))
         

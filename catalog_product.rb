@@ -21,11 +21,10 @@ class CatalogProduct
     else
       @section = thumbnailRow[1]
     end
-    
-    @season = thumbnailRow[2] 
+
     @season = thumbnailRow[2]
     @styleNum = thumbnailRow[3]
-    @thumbnail_prodName = thumbnailRow[4];
+    @thumbnail_prodName = thumbnailRow[4]
     @colorway = thumbnailRow[5]
     
     # Pull in the colorway information if the Alpha supplied in the thumbNail does not exists set defaults

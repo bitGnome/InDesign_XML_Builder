@@ -5,6 +5,7 @@ require_relative 'parse_thumbnail'
 require_relative 'lib/plm/parse_plm'
 require_relative 'lib/product_image_pull'
 require_relative 'lib/colorways/colorway_parse'
+require_relative 'lib/validate_path'
 require 'fileutils'
 
 @priority_season
@@ -12,21 +13,38 @@ require 'fileutils'
 
 if __FILE__ == $0
   
+  # Verify all paths to data are valid
+  fall_product_image_path = ValidatePath.new("/Users/brett_piatt/Devel/Product_Images/fall/")
+  spring_product_image_path = ValidatePath.new("/Users/brett_piatt/Devel/Product_Images/spring/")
+  plmData_path = ValidatePath.new("/Volumes/Creative_Services/Scripts/Ruby/Data/")
+  colorwayData_path = ValidatePath.new("/Volumes/Creative_Services/Scripts/PLM_Colorways/")
+  
+  
   print "Catalog Name (Ex. HOL11)? "
   catalogName = gets.chomp
   
   print "Path to thumbnail? "
   thumbnail_fileName = gets.chomp
   
-  print "Pull only Carry In Copy (y|n)? "
-  carry_in_copy_answer = gets.chomp
+  print "Latin copy for all products (y|n)? "
+  all_latin_copy = gets.chomp
   
-  if (carry_in_copy_answer.downcase.include?("y"))
-    
-    print "Which Season (fall|spring)? "
-    season_carry_in = gets.chomp.downcase
+  if (all_latin_copy.downcase.include?("y"))
+    only_latin_copy = true
   else
-    season_carry_in = "false"
+    only_latin_copy = false
+    
+    print "Pull only Carry In Copy (y|n)? "
+    carry_in_copy_answer = gets.chomp
+    
+    if (carry_in_copy_answer.downcase.include?("y"))
+      
+      print "Which Season (fall|spring)? "
+      season_carry_in = gets.chomp.downcase
+    else
+      season_carry_in = "false"
+    end
+    
   end
   
   # Check to see if FPO images are needed to be pulled
@@ -86,12 +104,15 @@ if __FILE__ == $0
   
   xmlFilePath = "./XML/"
   image_paths = Array.new
-  image_paths << "/Users/brett_piatt/Devel/Product_Images/fall/"
-  image_paths << "/Users/brett_piatt/Devel/Product_Images/spring/"
-  plmData_fall = File.new("/Volumes/Creative_Services/Scripts/Ruby/Data/PLM_Info_fall", "r")
-  plmData_spring = File.new("/Volumes/Creative_Services/Scripts/Ruby/Data/PLM_Info_spring", "r")
-  defultProductData = File.new("/Volumes/Creative_Services/Scripts/Ruby/Data/productNotFound.csv", "r")
-  colorwayData = File.new("/Volumes/Creative_Services/Scripts/PLM_Colorways/PLM_Colorways", "r")
+  image_paths << fall_product_image_path.path;
+  image_paths << spring_product_image_path.path;
+  
+  puts ("plmData_path = #{plmData_path.path}")
+  
+  plmData_fall = File.new("#{plmData_path.path}PLM_Info_fall", "r")
+  plmData_spring = File.new("#{plmData_path.path}PLM_Info_spring", "r")
+  defultProductData = File.new("#{plmData_path.path}productNotFound.csv", "r")
+  colorwayData = File.new("#{colorwayData_path.path}PLM_Colorways", "r")
   
   begin
     thumbnail_file = File.new(thumbnail_fileName, "r")
@@ -104,25 +125,34 @@ if __FILE__ == $0
   
   thumbNail = ParseThumbnail.new(thumbnail_file)
   
-  if (season_carry_in == "fall")
-    fallPLM = ParsePlm.new(plmData_fall, true)
+  if (only_latin_copy)
+    
+    fallPLM = ParsePlm.new(plmData_fall, "latin")
+    springPLM = ParsePlm.new(plmData_spring, "latin")
+    
   else
-    fallPLM = ParsePlm.new(plmData_fall, false)
+    
+    if (season_carry_in == "fall")
+      fallPLM = ParsePlm.new(plmData_fall, "carry_in")
+    else
+      fallPLM = ParsePlm.new(plmData_fall, "all")
+    end
+    
+    if (season_carry_in == "spring")
+      springPLM = ParsePlm.new(plmData_spring, "carry_in")
+    else
+      springPLM = ParsePlm.new(plmData_spring, "all")
+    end
+    
   end
-  
-  if (season_carry_in == "spring")
-    springPLM = ParsePlm.new(plmData_spring, true)
-  else
-    springPLM = ParsePlm.new(plmData_spring, false)
-  end
-  
+    
   colorwayInfo = ColorwayParse.new(colorwayData)
   
   # Set up the CatalogFPO object. This will handle finding and copying the FPO image into the FPO folder
   catalogFPO = ProductImagePull.new(image_paths)
   
   thumbNail.products.each do | style_number, product | 
-    
+        
     if product.season.downcase == "fall"
       plmDataObj = fallPLM
       @priority_season = "fall"
@@ -181,8 +211,8 @@ if __FILE__ == $0
       colorNum = "XXX"
     end   
     
-    if (pullFPOImages)
-        
+    if (pullFPOImages && (product.type != "LL"))
+      
       # Pull in the FPO if one exists
       findResult = catalogFPO.get_image(style_number,  product.feature_color, colorNum, false)
       unless findResult 
@@ -215,16 +245,14 @@ if __FILE__ == $0
       FileUtils.cp("./Template/product.indd", "Catalog/#{pageNum}/#{catalogName}_#{pageNum}.indd")
     end
     
-    # Write out the copy document
-    copyFile.write("#{pageNum}\n")
-    
-    productsArray.each do | myProduct |
-      if(!myProduct.plm_data.no_copy)
-        copyFile.write("#{myProduct.plm_data.plmHash[:productName]} \n#{myProduct.plm_data.plmHash[:productCopy]} #{myProduct.plm_data.plmHash[:fit]}. #{myProduct.plm_data.plmHash[:countryOfOrigin]}.\n\n");
+      # Write out the copy document
+      copyFile.write("#{pageNum}\n")
+      
+      productsArray.each do | myProduct |
+        if(!myProduct.plm_data.no_copy)
+          copyFile.write("#{myProduct.plm_data.plmHash[:productName]} \n#{myProduct.plm_data.plmHash[:productCopy]} #{myProduct.plm_data.plmHash[:fit]}. #{myProduct.plm_data.plmHash[:countryOfOrigin]}.\n\n");
+        end
       end
-    end
-    
-    
   end
   
   copyFile.close

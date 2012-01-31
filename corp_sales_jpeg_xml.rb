@@ -35,9 +35,9 @@ if __FILE__ == $0
   catalogProducts = Hash.new
   
   thumbNail = ParseThumbnail.new(thumbnail_file)
-  blankProduct = ParsePlm.new(defultProductData)
-  fallPLM = ParsePlm.new(plmData_fall)
-  springPLM = ParsePlm.new(plmData_spring)
+  blankProduct = ParsePlm.new(defultProductData, false)
+  fallPLM = ParsePlm.new(plmData_fall, false)
+  springPLM = ParsePlm.new(plmData_spring, false)
   colorwayInfo = ColorwayParse.new(colorwayData)
   
   # Set up the corp_sales_jpeg object. This will handle finding and copying the FPO image into the FPO folder
@@ -90,14 +90,14 @@ if __FILE__ == $0
     # Pull all the product images
     product.colorways.each do | styleNumber, colorways |
       colorways.each do | alpha |
-        
+                
         begin
           colorNum = colorwayInfo.colorways[alpha].number
         rescue
           colorNum = "XXX"
         end   
          
-        findResult = corpSalesJpeg.get_image(styleNumber, alpha, colorNum, false)
+        findResult = corpSalesJpeg.get_image(styleNumber, alpha, colorNum, true)
         unless findResult then puts "Image Not Found : #{styleNumber}_#{alpha}!" end
        
       end    

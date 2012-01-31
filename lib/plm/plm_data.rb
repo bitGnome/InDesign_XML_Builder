@@ -9,10 +9,12 @@ class PlmData
   attr_accessor :plmHash
   attr_accessor :no_copy
   
-  def initialize(plmData, carry_in_copy_only)
+  def initialize(plmData, copy_option)
     
     @plmHash = Hash.new
     @no_copy = false
+    @copy_option = copy_option
+    
     
     latin_copy = "Ris volupta volore, con pe re, et eius, te odi quaturero blabo. Itati unt vid magnistem eos evelique pra veriasi taturectius. Tur rest, quiam, quundio. Et officiae volorem. Fuga. Ut pa parum hil ma veniatem. Uscil mos minctorrorum quin cusant, bh Ero Od Dio Dolortio Dipit Laortionsed Ex Eait velissed dolesecte do od esecte magna autatue essequi smolobo rperit aliqui tat. Do dipsuscin ut vel ea feugiam consequisim iriure magnim iuscinibh ex el diat fit. Made in Sed Min Ulla Faccum Dolore Vel Ulput Luptat Volessi Blan Agnibh Ero Od Dio Dolortio Dipit Laortionsed Ex Et Num Zzriureet."
     
@@ -46,7 +48,10 @@ class PlmData
     bugs[:upf] = plmData[14]
     bugs[:status] = plmData[15]
     
-    if (carry_in_copy_only)
+    if (@copy_option == "latin")
+      @plmHash[:productCopy] = latin_copy
+      @no_copy = true
+    elsif (@copy_option == "carry_in")
       if (bugs[:status] != "Carry In")
         @plmHash[:productCopy] = latin_copy
         @no_copy = true
