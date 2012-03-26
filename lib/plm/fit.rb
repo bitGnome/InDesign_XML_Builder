@@ -4,7 +4,7 @@ class Fit
   
   def initialize(fit)
     
-    if fit == nil then 
+    if fit.nil? 
        @fit_format = "NO FIT INFO" 
     else 
       # Format the fit verbage

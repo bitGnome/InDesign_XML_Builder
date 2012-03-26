@@ -21,32 +21,36 @@ class PlmData
     # The order of this data is dependant on your PLM view!
     # See the page http://creative.lostarrow.com/index.php?option=com_content&task=view&id=9&Itemid=9
     # for PLM data order
-    @plmHash[:styleNumber] = plmData[1]
-    @plmHash[:productName] = plmData[2]
-    @plmHash[:weight] = Weight.new(plmData[3].to_f)
-    @plmHash[:price] = plmData[4]
-    @plmHash[:sizeRange] = SizeRange.new(plmData[5])
+    @plmHash[:styleNumber] = plmData["Style Number"]
+    @plmHash[:productName] = plmData["Marketing Name"]
+    @plmHash[:weight] = Weight.new(plmData["Weight in Oz."].to_f)
+    @plmHash[:price] = plmData["Published Retail Price"]
     
-    if plmData[6].to_s == ""
+    if plmData["Size Range"].eql?("") then plmData["Size Range"] = "NO SIZE INFO" end
+      
+    size_range = SizeRange.new()
+    @plmHash[:sizeRange] = size_range.catalog_format(plmData["Size Range"])
+    
+    if plmData["Product Copy"].to_s == ""
       @plmHash[:productCopy] = latin_copy
       @no_copy = true
     else
-      @plmHash[:productCopy] = plmData[6].to_s
+      @plmHash[:productCopy] = plmData["Product Copy"].to_s
     end
 
     @plmHash[:latin_copy] = latin_copy
-    @plmHash[:fit] = Fit.new(plmData[7])
-    @plmHash[:countryOfOrigin] = CountryOfOrigin.new(plmData[8])
-    @plmHash[:team] = plmData[9]
+    @plmHash[:fit] = Fit.new(plmData["Fit"])
+    @plmHash[:countryOfOrigin] = CountryOfOrigin.new(plmData["Country of Origin"])
+    @plmHash[:team] = plmData["Team"]
     
     # Bug info
     bugs = Hash.new
-    bugs[:bluesign] = plmData[10]
-    bugs[:eFiber] = plmData[11]
-    bugs[:polartec] = plmData[12]
-    bugs[:goreTex] = plmData[13]
-    bugs[:upf] = plmData[14]
-    bugs[:status] = plmData[15]
+    bugs[:bluesign] = plmData["Bluesign Approved"]
+    bugs[:eFiber] = plmData["E Style"]
+    bugs[:polartec] = plmData["Polartec Product"]
+    bugs[:goreTex] = plmData["Gore-Tex Primary"]
+    bugs[:upf] = plmData["UPF Value"]
+    bugs[:status] = plmData["Status"]
     
     if (@copy_option == "latin")
       @plmHash[:productCopy] = latin_copy

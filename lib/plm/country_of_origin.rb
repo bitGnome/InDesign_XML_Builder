@@ -1,6 +1,6 @@
 class CountryOfOrigin
 
-  require_relative '../strings' 
+  require_relative '../utils/strings' 
   
   @capOrigin 
   

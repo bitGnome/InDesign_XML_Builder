@@ -40,5 +40,53 @@ class String
     end_single_smart_quotes_replace = begining_single_smart_quotes_replace.gsub(/(\"[\s])/, "&#8217; ")
   
   end
+  
+  def truncate_gender
+    m_w = self.gsub(/Women's/, "W&#8217;s")
+    m_w = m_w.gsub(/Women&#8217;s/, "W&#8217;s")
+    m_w = m_w.gsub(/Men&#8217;s/, "M&#8217;s")
+    m_w = m_w.gsub(/Men's/, "M&#8217;s")
+    return m_w
+  end
+  
+  def get_gender
+        
+    case self.downcase
+    when /^women/
+      return "women"
+    when /^men/
+      return "men"
+    when /^boy/
+      return "boy"
+    when /^girl/
+      return "girl"
+    when /^baby/
+      return "baby"
+    else
+      return "unisex"
+    end
+    
+  end
+  
+  def remove_trade_reg_marks
+    
+    # Remove Registered Trademarks (R)
+    clean_string = self.gsub(/\302\256/, '')
+    clean_string = clean_string.gsub(/\&\#174;/, '')
+    
+    # Remove Trade Marks (TM)
+    clean_string = clean_string.gsub(/\342\204\242/, '')
+    clean_string = clean_string.gsub(/\&\#8482;/, '')
+    return clean_string
+    
+  end
+  
+  def is_a_number?
+    self.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true 
+  end
+  
+  def remove_double_quotes
+    clean_string = self.gsub(/\"+/, "\"")
+  end
 
 end

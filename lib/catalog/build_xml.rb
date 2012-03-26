@@ -1,7 +1,7 @@
 class BuildXml
   
   require 'builder'
-  require_relative 'lib/strings'
+  require_relative '../utils/strings'
   
   attr_reader :section
   
@@ -14,7 +14,9 @@ class BuildXml
     
   end
   
-  def create_catalog_xml
+  def create_catalog_xml(eu_specs)
+    
+    eu_specs = eu_specs
     
     xml = Builder::XmlMarkup.new(:target => @xmlFile, :indent => 0)
     xml.instruct! :xml, :version => "1.0", :encoding => "UTF-8"
@@ -33,7 +35,9 @@ class BuildXml
           end
                      
           clean_product_name = productName.remove_PLM_corruption
-          xml.product_name    { |text| text << clean_product_name.encode_smart_quotes }
+          product_name_encoded = clean_product_name.encode_smart_quotes
+          
+          xml.product_name    { |text| text << product_name_encoded }
           xml.bugs            ( product.plm_data.plmHash[:bugInfo].getBugInfo )
                     
           if product.copy_type == "latin"
@@ -48,8 +52,18 @@ class BuildXml
           xml.fit             ( product.plm_data.plmHash[:fit] )
           xml.countryOfOrigin ( product.plm_data.plmHash[:countryOfOrigin] )
           xml.style_number    ( product.plm_data.plmHash[:styleNumber] )
-          xml.price           ( product.plm_data.plmHash[:price] )
-          xml.size_range      ( product.plm_data.plmHash[:sizeRange].sizeRange )
+          
+          if (eu_specs)
+            xml.price_eu      ( product.euro )
+            xml.price_pound   ( product.pound )
+            xml.size_range    ( product.eu_size_range )
+            #puts ("euros : #{product.euro} / pounds : #{product.pound} / size_range : #{product.eu_size_range}")
+          else
+            xml.price           ( product.plm_data.plmHash[:price] )  
+            xml.size_range      ( product.plm_data.plmHash[:sizeRange] )
+          end
+          
+          xml.size_range      ( product.plm_data.plmHash[:sizeRange] )
           xml.weight_oz       ( product.plm_data.plmHash[:weight].weight_oz )
           xml.weight_g        ( product.plm_data.plmHash[:weight].weight_g )
           
@@ -82,7 +96,8 @@ class BuildXml
               featureColorName = "Not Found"
             end      
             
-            xml.name { |text| text << clean_product_name.encode_smart_quotes }
+            product_name_no_reg = product_name_encoded.remove_trade_reg_marks
+            xml.name { |text| text << product_name_no_reg.truncate_gender }
             xml.colorAlpha ( product.feature_color )
             xml.colorNumber ( featureColorNum )
             xml.colorName ( featureColorName )

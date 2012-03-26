@@ -1,8 +1,10 @@
 class CatalogProduct
   
-  require_relative 'lib/plm/plm_data'
+  require_relative '../plm/plm_data'
+  require_relative '../plm/size_range'
   
   attr_reader :pageNum, :styleNum, :thumbnail_prodName, :plm_data, :colorways, :feature_color, :season, :type, :copy_type, :section
+  attr_reader :eu_size_range, :euro, :pound
   
   @colorways
   @styleNum 
@@ -14,28 +16,47 @@ class CatalogProduct
   def initialize(thumbnailRow)
     
     # Instance variables
-    @pageNum = thumbnailRow[0]
+    @pageNum = thumbnailRow["page"]
     
-    if thumbnailRow[1].to_s == ""
+    if thumbnailRow["season"].to_s.eql?("")
       @section = "NO SECTION"
     else
-      @section = thumbnailRow[1]
+      @section = thumbnailRow["section"]
     end
 
-    @season = thumbnailRow[2]
-    @styleNum = thumbnailRow[3]
-    @thumbnail_prodName = thumbnailRow[4]
-    @colorway = thumbnailRow[5]
+    if thumbnailRow["season"].downcase.include?("fall")
+      @season = "fall"
+    else
+      @season = "spring"
+    end
+    
+    @styleNum = thumbnailRow["style #"]
+    @thumbnail_prodName = thumbnailRow["style description"]
+    @colorway = thumbnailRow[5]    
     
     # Pull in the colorway information if the Alpha supplied in the thumbNail does not exists set defaults
     begin
-      @type = thumbnailRow[7].upcase
+      @type = thumbnailRow["feature"].upcase
     rescue
       @type = "X"
     end   
     
-    @OM = thumbnailRow[8]
-    @copy_type = thumbnailRow[10]
+    #@OM = thumbnailRow[8]
+    
+    @copy_type = thumbnailRow["copy_type"]
+    
+    unless thumbnailRow["eu_sizes"].nil?
+      size_range = SizeRange.new()
+      @eu_size_range = size_range.catalog_format(thumbnailRow["eu_sizes"])
+    end
+    
+    unless thumbnailRow["euro"].nil?
+      @euro = thumbnailRow["euro"]
+    end
+    
+    unless thumbnailRow["pound"].nil?
+      @pound = thumbnailRow["pound"]
+    end
     
     # These 2 hashes will be used later in the insertColorways method
     @pageNum = Array.new
@@ -47,7 +68,7 @@ class CatalogProduct
     
     if colorway.nil? 
       colorway = "XXX" 
-      puts "Setting colorway to XXX for #{@styleNum}"
+      #puts "Setting colorway to XXX for #{@styleNum}"
     end
     
     # Check to see if the hash exits

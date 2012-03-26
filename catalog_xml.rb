@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 
-require_relative 'build_xml'
-require_relative 'parse_thumbnail'
-require_relative 'lib/plm/parse_plm'
-require_relative 'lib/product_image_pull'
-require_relative 'lib/colorways/colorway_parse'
-require_relative 'lib/validate_path'
 require 'fileutils'
+require_relative 'lib/catalog/build_xml'
+require_relative 'lib/catalog/parse_thumbnail'
+require_relative 'lib/plm/parse_plm'
+require_relative 'lib/catalog/product_image_pull'
+require_relative 'lib/colorways/colorway_parse'
+require_relative 'lib/utils/validate_path'
 
 @priority_season
 @secondary_season
@@ -28,6 +28,15 @@ if __FILE__ == $0
   
   print "Latin copy for all products (y|n)? "
   all_latin_copy = gets.chomp
+  
+  print "Pull EU prices and specs (y|n)? "
+  eu_specs = gets.chomp
+  
+  if eu_specs.include?("y")
+    eu_specs = true
+  else
+    eu_specs = false
+  end
   
   if (all_latin_copy.downcase.include?("y"))
     only_latin_copy = true
@@ -73,7 +82,7 @@ if __FILE__ == $0
     
     if deleteXMLDir.include?('y')
       puts "Deleting XML directory!"
-      FileUtils.rm_r './XML';
+      FileUtils.rm_r './XML'
     else 
       puts "Exiting Script!"
       Process.exit
@@ -167,17 +176,16 @@ if __FILE__ == $0
     if plmDataObj.data.has_key?(style_number)
       plmData = plmDataObj.data[style_number]
     else
+      puts "#{product.thumbnail_prodName} : #{style_number} was not found!"
       
       # If the product is not found set productHash to BlankProduct
-      blankProduct = ParsePlm.new(defultProductData, false)
+      blankProduct = ParsePlm.new(defultProductData, "all")
       plmData =  blankProduct.data["00000"]
        
       # Since the product was not found substitute the thumbnail product name and styleNumber in 
       # for the Blank Product defaults.
       plmData.plmHash[:styleNumber] = style_number
       plmData.plmHash[:productName] = product.thumbnail_prodName
-      
-      puts "#{product.thumbnail_prodName} : #{style_number} was not found!"
       
     end
     
@@ -211,8 +219,9 @@ if __FILE__ == $0
       colorNum = "XXX"
     end   
     
-    if (pullFPOImages && (product.type != "LL"))
+    if (pullFPOImages && (product.type.downcase != "ll"))
       
+      # puts "product.type == #{product.type}"
       # Pull in the FPO if one exists
       findResult = catalogFPO.get_image(style_number,  product.feature_color, colorNum, false)
       unless findResult 
@@ -233,7 +242,7 @@ if __FILE__ == $0
     xmlFile = File.new(xmlFileName, File::CREAT|File::RDWR)
     
     xmlBuilder = BuildXml.new(productsArray, xmlFile, pageNum, colorwayInfo)
-    xmlBuilder.create_catalog_xml
+    xmlBuilder.create_catalog_xml(eu_specs)
     
     # Create the InDesign files
     FileUtils.mkdir("Catalog/#{pageNum}")
