@@ -15,8 +15,6 @@ require_relative 'lib/utils/validate_path'
 if __FILE__ == $0
   
   # Verify all paths to data are valid
-  fall_product_image_path = ValidatePath.new("/Users/brett_piatt/Devel/Product_Images/fall/")
-  spring_product_image_path = ValidatePath.new("/Users/brett_piatt/Devel/Product_Images/spring/")
   plmData_path = ValidatePath.new("/Volumes/Creative_Services/Scripts/Ruby/Data/")
   colorwayData_path = ValidatePath.new("/Volumes/Creative_Services/Scripts/PLM_Colorways/")
   
@@ -26,6 +24,13 @@ if __FILE__ == $0
   
   print "Path to thumbnail? "
   thumbnail_fileName = gets.chomp
+  
+  begin
+    thumbnail_file = File.new(thumbnail_fileName, "r")
+  rescue
+    puts "Could not find thumbnail located at : #{thumbnail_fileName} - EXITING SCRIPT!!!"
+    exit
+  end
   
   print "Latin copy for all products (y|n)? "
   all_latin_copy = gets.chomp
@@ -62,6 +67,20 @@ if __FILE__ == $0
   pullFPO_answer = gets.chomp.downcase
   
   if (pullFPO_answer.include?("y"))
+    
+    print "Fall Product Image Path? "
+    fall_product_path = gets.chomp
+    
+    unless fall_product_path.match("/\$") then fall_product_path += "/" end
+    
+    fall_product_image_path = ValidatePath.new(fall_product_path)
+    
+    print "Spring Product Image Path? "
+    spring_product_path = gets.chomp
+    
+    unless spring_product_path.match("/\$") then spring_product_path += "/" end
+    
+    spring_product_image_path = ValidatePath.new(spring_product_path)
     
     # Check to see if an product_images directory already exists
     if (!Dir.exists?("./product_images"))
@@ -123,13 +142,6 @@ if __FILE__ == $0
   plmData_spring = File.new("#{plmData_path.path}PLM_Info_spring", "r")
   defultProductData = File.new("#{plmData_path.path}productNotFound.csv", "r")
   colorwayData = File.new("#{colorwayData_path.path}PLM_Colorways", "r")
-  
-  begin
-    thumbnail_file = File.new(thumbnail_fileName, "r")
-  rescue
-    puts "Could not find thumbnail located at : #{thumbnail_fileName} - EXITING SCRIPT!!!"
-    exit
-  end
 
   catalogProducts = Hash.new
   
