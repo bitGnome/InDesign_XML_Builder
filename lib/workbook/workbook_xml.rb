@@ -10,7 +10,11 @@ class WorkbookXml
     
   end
   
-  def build_LAG
+  def illustration_base_path=(path)
+    @illustration_base_path = path
+  end
+  
+  def build_LAG(show_fabric_info)
     
     # Paragraph styles
     product_head = "Product Head"
@@ -26,6 +30,7 @@ class WorkbookXml
     weight = "Weight"
     rise = "Rise"
     leg_sil = "Leg Silhouette"
+    fabric_sizes_bold = "Fabric_Sizes_Bold"
     
     xml = Builder::XmlMarkup.new(:target => @xml_file, :indent => 0)
     xml.instruct! :xml, :version => "1.0", :encoding => "UTF-8"
@@ -36,12 +41,13 @@ class WorkbookXml
           
           xml.Product_Text do
             xml.Product_Head("aid:pstyle" => product_head) { 
-              |prod_head| unless product.product_data[:status].nil?
+              |prod_head| prod_head << product.product_data[:product_name]  
+              
+                          unless product.product_data[:status].nil?
+                            prod_head << "&#09;"
                             prod_head.bug("href"  => product.product_data[:status] )
-                            prod_head.text! " "
                           end
                           
-                          prod_head << product.product_data[:product_name]  
                           prod_head << "&#13;"
             }
             
@@ -69,7 +75,7 @@ class WorkbookXml
                           
                           spec_line.size_range( product.product_data[:size_range], "aid:cstyle"  => size_range )
                           
-                          unless product.product_data[:rise].nil?
+                          unless product.product_data[:rise].nil? || product.product_data[:rise].eql?("")
                             
                             spec_line.pipe("aid:cstyle"  => pipe ) {
                               |pipe| pipe << "&#8194;|&#8194;"
@@ -79,7 +85,7 @@ class WorkbookXml
                           
                           end
                           
-                          unless product.product_data[:leg_silhouette].nil?
+                          unless product.product_data[:leg_silhouette].nil? || product.product_data[:leg_silhouette].eql?("")
                             
                             spec_line.pipe("aid:cstyle"  => pipe ) {
                               |pipe| pipe << "&#8194;|&#8194;"
@@ -135,9 +141,20 @@ class WorkbookXml
                           end
 
                           overview.text! product.product_data[:overview]
-                      
                           
+                          if show_fabric_info.eql?("y")
+                            
+                            overview << "&#13;"
+                            
+                            overview.fabric_header("aid:cstyle"  => fabric_sizes_bold ) {
+                              |fabric_text| fabric_text << "FABRIC: "
+                            }
+
+                            overview.fabric_text(product.product_data[:material_desc])
+
+                          end
             }
+            
           end
           
           @xml_file.write("\n")
@@ -155,6 +172,8 @@ class WorkbookXml
           
           @xml_file.write("\n")
           
+          xml.illustration(:href  => "#{@illustration_base_path}/#{style_number}.ai")
+          
         end
       end
     end
@@ -166,7 +185,7 @@ class WorkbookXml
   def build_USB
     # Paragraph styles
     product_head = "Product Head"
-    overview = "overview"
+    overview = "Overview"
     spec_line = "Spec_Line"
     colorways = "Colorways"
     feature_head = "Feature_Head"
@@ -192,12 +211,13 @@ class WorkbookXml
           
           xml.Product_Text do
             xml.Product_Head("aid:pstyle" => product_head) { 
-              |prod_head| unless product.product_data[:status].nil?
-                            prod_head.bug("href"  => product.product_data[:status] )
-                            prod_head.text! " "
+              |prod_head| prod_head << product.product_data[:product_name]  
+                
+                          unless product.product_data[:status].nil?
+                            prod_head << "&#09;"
+                            prod_head.bug("href"  => product.product_data[:status])
                           end
                           
-                          prod_head << product.product_data[:product_name]  
                           prod_head << "&#13;"
             }
             
@@ -225,7 +245,7 @@ class WorkbookXml
                           
                           spec_line.size_range( product.product_data[:size_range], "aid:cstyle"  => size_range )
                           
-                          unless product.product_data[:rise].nil?
+                          unless product.product_data[:rise].nil? || product.product_data[:rise].eql?("")
                             
                             spec_line.pipe("aid:cstyle"  => pipe ) {
                               |pipe| pipe << "&#8194;|&#8194;"
@@ -235,7 +255,7 @@ class WorkbookXml
                           
                           end
                           
-                          unless product.product_data[:leg_silhouette].nil?
+                          unless product.product_data[:leg_silhouette].nil? || product.product_data[:leg_silhouette].eql?("")
                             
                             spec_line.pipe("aid:cstyle"  => pipe ) {
                               |pipe| pipe << "&#8194;|&#8194;"
@@ -342,6 +362,8 @@ class WorkbookXml
           end
           
           @xml_file.write("\n")
+          
+          xml.illustration(:href  => "#{@illustration_base_path}/#{style_number}.ai")
           
         end
       end

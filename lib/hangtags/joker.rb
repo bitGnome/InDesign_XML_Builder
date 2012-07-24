@@ -61,6 +61,8 @@ class Joker
         spec_line_text += "&#8195;inseam: " + inseam + "\""
       elsif inseam_type.eql?("shorts")
         spec_line_text += "&#8195;short inseam: " + inseam + "\""
+      elsif inseam_type.eql?("skirt")
+        spec_line_text += "&#8195;length " + inseam + "\""
       end
     end
     
@@ -124,7 +126,7 @@ class Joker
     case tag_type.upcase
     #puts "M's 1-length, Open & 32"
     when "A"
-      @spec_line = format_spec_line(@display_size, @inseam, "pants")
+      @spec_line = format_spec_line(@display_size, @inseam, "no_inseam")
       
     # M's 3-length :: Pants(B), Cords(C) and Jeans(D).
     when "B", "C", "D"
@@ -183,7 +185,7 @@ class Joker
     
     # W's Skirts
     when "K"
-      @spec_line = format_spec_line(@display_size, @inseam, "pants")
+      @spec_line = format_spec_line(@display_size, @inseam, "skirt")
     
     # W's Zip-Off Pants 
     when "L"

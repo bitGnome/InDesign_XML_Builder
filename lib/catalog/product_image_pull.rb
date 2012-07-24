@@ -25,7 +25,7 @@ class ProductImagePull
     imageAlpha = (style_number + "_" + alpha).strip
     imageColorNum = (style_number + "_" + colorNum).strip
     
-    # If only the feature color is pulled appedn _alpha to the product image
+    # If only the feature color is pulled append _alpha to the product image
     if featureColorOnly
       product_image_name = "#{style_number}_#{alpha}.jpg"
     else

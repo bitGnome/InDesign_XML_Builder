@@ -7,8 +7,8 @@ require_relative 'lib/workbook/workbook_bugs'
 require_relative 'lib/workbook/workbook_xml'
 
 # set up all the product bugs
-@workbook_bug_path_lag = "/Volumes/Creative_Services/Workbook/S13_Workbook/xx_Bugs/"
-@workbook_bug_path_usb = "/Volumes/Creative_Services/Workbook/S13_Workbook/xx_Bugs/USB/"
+@workbook_bug_path_lag = "/Volumes/Creative_Services/Workbook/F13_Workbook/xx_Bugs/"
+@workbook_bug_path_usb = "/Volumes/Creative_Services/Workbook/F13_Workbook/xx_Bugs/USB/"
 
 print "XML Output Name? "
 xml_file_name = gets.chomp
@@ -29,6 +29,12 @@ end
 
 print "Workbook version (USB or LAG)? "
 @workbook_version = gets.chomp.downcase
+
+if @workbook_version.eql?("lag")
+  print "Print Fabric Information (Y|N)? "
+  print_fabric_info = gets.chomp.downcase
+end
+
 
 if @workbook_version.eql? "lag"
   
@@ -52,6 +58,10 @@ else
   puts "Workbook version must be either USB or LAG! EXITING!!!"
   exit
 end
+
+print "Path to Illustration? "
+illustration_base_path = gets.chomp
+
 
 @workbook_bugs = WorkbookBugs.new
 @workbook_bugs.path[:new] = @workbook_bug_path + "NEW.ai"
@@ -77,9 +87,10 @@ workbook =  ParseWorkbookCsv.new(csv_file, @workbook_bugs, @workbook_version)
 
 # Build the XML file
 xml_builder = WorkbookXml.new(workbook.products, xml_file)
+xml_builder.illustration_base_path= illustration_base_path
 
 if @workbook_version.eql? "lag"
-  xml_builder.build_LAG
+  xml_builder.build_LAG(print_fabric_info)
 else
   xml_builder.build_USB
 end

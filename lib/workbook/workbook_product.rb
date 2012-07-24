@@ -65,7 +65,13 @@ class WorkbookProduct
     @product_data[:regulator] = @workbook_bugs.boolean("regulator", @plm_data["Regulator Product"])
     @product_data[:leg_silhouette] = @plm_data["Leg Silhouette"]
     @product_data[:inseam_zipoff] = @plm_data["Inseam - Zip-Off Shorts"]
-   
+    
+    if @plm_data["Material Description (Edit)"].nil? || @plm_data["Material Description (Edit)"].eql?("")
+      @product_data[:material_desc] = "No Material Description in PLM!"
+    else
+      @product_data[:material_desc] = @plm_data["Material Description (Edit)"]
+    end
+       
   end
   
   def usb_information
@@ -74,12 +80,6 @@ class WorkbookProduct
       @product_data[:delivery_date] = "0/0/0"
     else
       @product_data[:delivery_date] = @plm_data["Delivery Date (Ex-DC)"]
-    end
-    
-    if @plm_data["Material Description (Edit)"].nil?
-      @product_data[:material_desc] = "No Material Description in PLM!"
-    else
-      @product_data[:material_desc] = @plm_data["Material Description (Edit)"]
     end
     
     @features.add_feature(@plm_data["Workbook Feature 1"], @plm_data["Workbook Feature 1 - Revised"])
@@ -100,4 +100,5 @@ class WorkbookProduct
     
     @colorways.insert_colorway(name, alpha, number)
   end
+  
 end

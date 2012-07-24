@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# encoding: utf-8
 
 require 'fileutils'
 require_relative 'lib/catalog/build_xml'
@@ -180,7 +181,7 @@ if __FILE__ == $0
       
       # If the product is not found set productHash to BlankProduct
       blankProduct = ParsePlm.new(defultProductData, "all")
-      plmData =  blankProduct.data["00000"]
+      plmData =  blankProduct.data["0"]
        
       # Since the product was not found substitute the thumbnail product name and styleNumber in 
       # for the Blank Product defaults.
@@ -223,7 +224,12 @@ if __FILE__ == $0
       
       # puts "product.type == #{product.type}"
       # Pull in the FPO if one exists
-      findResult = catalogFPO.get_image(style_number,  product.feature_color, colorNum, false)
+      if style_number.nil? || product.feature_color.nil?
+        findResult = false
+      else
+        findResult = catalogFPO.get_image(style_number,  product.feature_color, colorNum, false)
+      end
+      
       unless findResult 
         unless findResult then missing_images.puts "#{product.thumbnail_prodName} : #{style_number} - #{product.feature_color}"  end
       end 
@@ -248,7 +254,7 @@ if __FILE__ == $0
     FileUtils.mkdir("Catalog/#{pageNum}")
     
     # Check and see if the page is an editorial
-    if (xmlBuilder.section =~ /edit/) then
+    if (xmlBuilder.section.downcase =~ /edit/) then
       FileUtils.cp("./Template/editorial.indd", "Catalog/#{pageNum}/#{catalogName}_#{pageNum}.indd")
     else 
       FileUtils.cp("./Template/product.indd", "Catalog/#{pageNum}/#{catalogName}_#{pageNum}.indd")

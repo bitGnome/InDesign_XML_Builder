@@ -71,11 +71,10 @@ class String
   def remove_trade_reg_marks
     
     # Remove Registered Trademarks (R)
-    clean_string = self.gsub(/\302\256/, '')
-    clean_string = clean_string.gsub(/\&\#174;/, '')
+    clean_string = self.gsub(/\&\#174;/, '')
     
     # Remove Trade Marks (TM)
-    clean_string = clean_string.gsub(/\342\204\242/, '')
+    #clean_string = clean_string.gsub(/\342\204\242/, '')
     clean_string = clean_string.gsub(/\&\#8482;/, '')
     return clean_string
     

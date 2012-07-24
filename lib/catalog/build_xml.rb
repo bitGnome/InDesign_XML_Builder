@@ -21,7 +21,7 @@ class BuildXml
     xml = Builder::XmlMarkup.new(:target => @xmlFile, :indent => 0)
     xml.instruct! :xml, :version => "1.0", :encoding => "UTF-8"
     
-    xml.Root( "xmlns:aid" => "http://ns.adobe.com/AdobeInDesign/4.0/" ) do
+    xml.Root do
       @productArray.each do | product |
         
         @section = product.section.downcase;

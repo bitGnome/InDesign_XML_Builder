@@ -16,7 +16,7 @@ class PlmData
     @copy_option = copy_option
     
     
-    latin_copy = "Ris volupta volore, con pe re, et eius, te odi quaturero blabo. Itati unt vid magnistem eos evelique pra veriasi taturectius. Tur rest, quiam, quundio. Et officiae volorem. Fuga. Ut pa parum hil ma veniatem. Uscil mos minctorrorum quin cusant, bh Ero Od Dio Dolortio Dipit Laortionsed Ex Eait velissed dolesecte do od esecte magna autatue essequi smolobo rperit aliqui tat. Do dipsuscin ut vel ea feugiam consequisim iriure magnim iuscinibh ex el diat fit. Made in Sed Min Ulla Faccum Dolore Vel Ulput Luptat Volessi Blan Agnibh Ero Od Dio Dolortio Dipit Laortionsed Ex Et Num Zzriureet."
+    latin_copy = "Ris volupta volore, con pe re, et eius, te odi quaturero blabo. Itati unt vid magnistem eos evelique pra veriasi taturectius. Tur rest, quiam, quundio. Et officiae volorem. Fuga. Ut pa parum hil ma veniatem. Uscil mos minctorrorum quin cusant."
     
     # The order of this data is dependant on your PLM view!
     # See the page http://creative.lostarrow.com/index.php?option=com_content&task=view&id=9&Itemid=9

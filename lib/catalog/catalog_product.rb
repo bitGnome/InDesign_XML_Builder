@@ -44,7 +44,7 @@ class CatalogProduct
     #@OM = thumbnailRow[8]
     
     @copy_type = thumbnailRow["copy_type"]
-    
+        
     unless thumbnailRow["eu_sizes"].nil?
       size_range = SizeRange.new()
       @eu_size_range = size_range.catalog_format(thumbnailRow["eu_sizes"])
