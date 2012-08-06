@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class WorkbookBugs - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/workbook/workbook_bugs.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-bluesign">#bluesign</a>
+    
+    <li><a href="#method-i-boolean">#boolean</a>
+    
+    <li><a href="#method-i-gore_tex">#gore_tex</a>
+    
+    <li><a href="#method-i-h2no">#h2no</a>
+    
+    <li><a href="#method-i-insulation">#insulation</a>
+    
+    <li><a href="#method-i-status">#status</a>
+    
+    <li><a href="#method-i-test_for_nil">#test_for_nil</a>
+    
+    <li><a href="#method-i-upf">#upf</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README.html">README</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Bugs.html">Bugs</a>
+  
+    <li><a href="./BuildJokerXml.html">BuildJokerXml</a>
+  
+    <li><a href="./BuildXml.html">BuildXml</a>
+  
+    <li><a href="./CatalogFPO.html">CatalogFPO</a>
+  
+    <li><a href="./CatalogProduct.html">CatalogProduct</a>
+  
+    <li><a href="./Colorway.html">Colorway</a>
+  
+    <li><a href="./ColorwayParse.html">ColorwayParse</a>
+  
+    <li><a href="./CountryOfOrigin.html">CountryOfOrigin</a>
+  
+    <li><a href="./File.html">File</a>
+  
+    <li><a href="./Fit.html">Fit</a>
+  
+    <li><a href="./ImportCsv.html">ImportCsv</a>
+  
+    <li><a href="./Joker.html">Joker</a>
+  
+    <li><a href="./JokerCsvParse.html">JokerCsvParse</a>
+  
+    <li><a href="./JokerTemplateBuilder.html">JokerTemplateBuilder</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./ParsePlm.html">ParsePlm</a>
+  
+    <li><a href="./ParseThumbnail.html">ParseThumbnail</a>
+  
+    <li><a href="./ParseWorkbookCsv.html">ParseWorkbookCsv</a>
+  
+    <li><a href="./PlmData.html">PlmData</a>
+  
+    <li><a href="./ProductColorways.html">ProductColorways</a>
+  
+    <li><a href="./ProductImagePull.html">ProductImagePull</a>
+  
+    <li><a href="./Rise.html">Rise</a>
+  
+    <li><a href="./SizeRange.html">SizeRange</a>
+  
+    <li><a href="./String.html">String</a>
+  
+    <li><a href="./TestSizeRange.html">TestSizeRange</a>
+  
+    <li><a href="./ValidatePath.html">ValidatePath</a>
+  
+    <li><a href="./Weight.html">Weight</a>
+  
+    <li><a href="./WorkbookBugs.html">WorkbookBugs</a>
+  
+    <li><a href="./WorkbookFeatures.html">WorkbookFeatures</a>
+  
+    <li><a href="./WorkbookProduct.html">WorkbookProduct</a>
+  
+    <li><a href="./WorkbookXml.html">WorkbookXml</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class WorkbookBugs</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">path</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/workbook/workbook_bugs.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@path</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-bluesign" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bluesign</span><span
+            class="method-args">(value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bluesign-source">
+            <pre><span class="ruby-comment"># File lib/workbook/workbook_bugs.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bluesign</span>(<span class="ruby-identifier">value</span>)
+  
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">test_for_nil</span>(<span class="ruby-identifier">value</span>)
+  
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">downcase!</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;no&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:bluesign</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- bluesign-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- bluesign-method -->
+
+    
+      <div id="method-i-boolean" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">boolean</span><span
+            class="method-args">(name, value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="boolean-source">
+            <pre><span class="ruby-comment"># File lib/workbook/workbook_bugs.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">boolean</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span>)
+  
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">test_for_nil</span>(<span class="ruby-identifier">value</span>)
+  
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">downcase!</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;yes&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- boolean-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- boolean-method -->
+
+    
+      <div id="method-i-gore_tex" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gore_tex</span><span
+            class="method-args">(value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="gore_tex-source">
+            <pre><span class="ruby-comment"># File lib/workbook/workbook_bugs.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gore_tex</span>(<span class="ruby-identifier">value</span>)
+  
+ <span class="ruby-identifier">value</span> = <span class="ruby-identifier">test_for_nil</span>(<span class="ruby-identifier">value</span>)
+  
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">downcase!</span>
+       
+  <span class="ruby-keyword">case</span> 
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%rproduct/</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:gore_tex</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%rwindstopper/</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:windstopper</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- gore_tex-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- gore_tex-method -->
+
+    
+      <div id="method-i-h2no" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">h2no</span><span
+            class="method-args">(value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="h2no-source">
+            <pre><span class="ruby-comment"># File lib/workbook/workbook_bugs.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">h2no</span>(<span class="ruby-identifier">value</span>)
+  
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">test_for_nil</span>(<span class="ruby-identifier">value</span>)
+  
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">downcase!</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%rh2no/</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:h2no</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- h2no-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- h2no-method -->
+
+    
+      <div id="method-i-insulation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">insulation</span><span
+            class="method-args">(value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="insulation-source">
+            <pre><span class="ruby-comment"># File lib/workbook/workbook_bugs.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">insulation</span>(<span class="ruby-identifier">value</span>)
+  
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">test_for_nil</span>(<span class="ruby-identifier">value</span>)
+  
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">downcase!</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%rprimaloft/</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:prima_loft</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- insulation-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- insulation-method -->
+
+    
+      <div id="method-i-status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">status</span><span
+            class="method-args">(value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="status-source">
+            <pre><span class="ruby-comment"># File lib/workbook/workbook_bugs.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">status</span>(<span class="ruby-identifier">value</span>)
+  
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">test_for_nil</span>(<span class="ruby-identifier">value</span>)
+  
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">downcase!</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;new&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:new</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;redesign&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:rev</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- status-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- status-method -->
+
+    
+      <div id="method-i-test_for_nil" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_for_nil</span><span
+            class="method-args">(value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_for_nil-source">
+            <pre><span class="ruby-comment"># File lib/workbook/workbook_bugs.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_for_nil</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;nil&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- test_for_nil-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- test_for_nil-method -->
+
+    
+      <div id="method-i-upf" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upf</span><span
+            class="method-args">(value)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="upf-source">
+            <pre><span class="ruby-comment"># File lib/workbook/workbook_bugs.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upf</span>(<span class="ruby-identifier">value</span>)
+  
+  <span class="ruby-identifier">value</span> = <span class="ruby-identifier">test_for_nil</span>(<span class="ruby-identifier">value</span>)
+  
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">downcase!</span>
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r50\+/</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:upf_50_plus</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r50/</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:upf_50</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r40/</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:upf_40</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r35/</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:upf_35</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r30/</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:upf_30</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r25/</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:upf_25</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r20/</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@path</span>[<span class="ruby-value">:upf_20</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r15/</span>)
+    <span class="ruby-keyword">return</span><span class="ruby-ivar">@path</span>[<span class="ruby-value">:upf_15</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- upf-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- upf-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class WorkbookProduct - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/workbook/workbook_product.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-base_information">#base_information</a>
+    
+    <li><a href="#method-i-insert_colorway">#insert_colorway</a>
+    
+    <li><a href="#method-i-usb_information">#usb_information</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README.html">README</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Bugs.html">Bugs</a>
+  
+    <li><a href="./BuildJokerXml.html">BuildJokerXml</a>
+  
+    <li><a href="./BuildXml.html">BuildXml</a>
+  
+    <li><a href="./CatalogFPO.html">CatalogFPO</a>
+  
+    <li><a href="./CatalogProduct.html">CatalogProduct</a>
+  
+    <li><a href="./Colorway.html">Colorway</a>
+  
+    <li><a href="./ColorwayParse.html">ColorwayParse</a>
+  
+    <li><a href="./CountryOfOrigin.html">CountryOfOrigin</a>
+  
+    <li><a href="./File.html">File</a>
+  
+    <li><a href="./Fit.html">Fit</a>
+  
+    <li><a href="./ImportCsv.html">ImportCsv</a>
+  
+    <li><a href="./Joker.html">Joker</a>
+  
+    <li><a href="./JokerCsvParse.html">JokerCsvParse</a>
+  
+    <li><a href="./JokerTemplateBuilder.html">JokerTemplateBuilder</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./ParsePlm.html">ParsePlm</a>
+  
+    <li><a href="./ParseThumbnail.html">ParseThumbnail</a>
+  
+    <li><a href="./ParseWorkbookCsv.html">ParseWorkbookCsv</a>
+  
+    <li><a href="./PlmData.html">PlmData</a>
+  
+    <li><a href="./ProductColorways.html">ProductColorways</a>
+  
+    <li><a href="./ProductImagePull.html">ProductImagePull</a>
+  
+    <li><a href="./Rise.html">Rise</a>
+  
+    <li><a href="./SizeRange.html">SizeRange</a>
+  
+    <li><a href="./String.html">String</a>
+  
+    <li><a href="./TestSizeRange.html">TestSizeRange</a>
+  
+    <li><a href="./ValidatePath.html">ValidatePath</a>
+  
+    <li><a href="./Weight.html">Weight</a>
+  
+    <li><a href="./WorkbookBugs.html">WorkbookBugs</a>
+  
+    <li><a href="./WorkbookFeatures.html">WorkbookFeatures</a>
+  
+    <li><a href="./WorkbookProduct.html">WorkbookProduct</a>
+  
+    <li><a href="./WorkbookXml.html">WorkbookXml</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class WorkbookProduct</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-colorways" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">colorways</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-features" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">features</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-product_data" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">product_data</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(plm_data, workbook_bugs)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/workbook/workbook_product.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">plm_data</span>, <span class="ruby-identifier">workbook_bugs</span>)
+  
+  <span class="ruby-ivar">@colorways</span> = <span class="ruby-constant">ProductColorways</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@product_data</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@plm_data</span> = <span class="ruby-identifier">plm_data</span>
+  <span class="ruby-ivar">@workbook_bugs</span> = <span class="ruby-identifier">workbook_bugs</span>
+  <span class="ruby-ivar">@features</span> = <span class="ruby-constant">WorkbookFeatures</span>.<span class="ruby-identifier">new</span>
+  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-base_information" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">base_information</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="base_information-source">
+            <pre><span class="ruby-comment"># File lib/workbook/workbook_product.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">base_information</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Marketing Name&quot;</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:product_name</span>] = <span class="ruby-string">&quot;product name&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">product_name</span> = <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Marketing Name&quot;</span>].<span class="ruby-identifier">truncate_gender</span>
+    <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:product_name</span>] = <span class="ruby-identifier">product_name</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:style_number</span>] = <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Style Number&quot;</span>]
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Overview&quot;</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:overview</span>] = <span class="ruby-string">&quot;No overview supplied in the PLM!&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:overview</span>] = <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Overview&quot;</span>]
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:status</span>] = <span class="ruby-ivar">@workbook_bugs</span>.<span class="ruby-identifier">status</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Status&quot;</span>].<span class="ruby-identifier">downcase</span>)
+  <span class="ruby-identifier">fit</span> = <span class="ruby-constant">Fit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Fit&quot;</span>])
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:fit</span>] = <span class="ruby-identifier">fit</span>.<span class="ruby-identifier">to_s</span>
+  
+  <span class="ruby-identifier">size_range</span> = <span class="ruby-constant">SizeRange</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:size_range</span>] = <span class="ruby-identifier">size_range</span>.<span class="ruby-identifier">workbook_format</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Size Range&quot;</span>])
+  
+  <span class="ruby-identifier">weight</span> = <span class="ruby-constant">Weight</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Weight in Oz.&quot;</span>].<span class="ruby-identifier">to_f</span>)
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:weight_oz</span>] = <span class="ruby-identifier">weight</span>.<span class="ruby-identifier">weight_oz</span>
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:weight_g</span>] = <span class="ruby-identifier">weight</span>.<span class="ruby-identifier">weight_g</span>
+  
+  <span class="ruby-identifier">volume</span> = <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Volume (Liters)&quot;</span>].<span class="ruby-identifier">to_f</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">volume</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+    <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:size_range</span>] = <span class="ruby-node">&quot;#{volume.round} L&quot;</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:polartec</span>] = <span class="ruby-ivar">@workbook_bugs</span>.<span class="ruby-identifier">boolean</span>(<span class="ruby-string">&quot;polartec&quot;</span>, <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Polartec Product&quot;</span>])
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:e_style</span>] = <span class="ruby-ivar">@workbook_bugs</span>.<span class="ruby-identifier">boolean</span>(<span class="ruby-string">&quot;e_style&quot;</span>, <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;E Style&quot;</span>])
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:upf</span>] = <span class="ruby-ivar">@workbook_bugs</span>.<span class="ruby-identifier">upf</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;UPF Value&quot;</span>])
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:gore_tex</span>] = <span class="ruby-ivar">@workbook_bugs</span>.<span class="ruby-identifier">gore_tex</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Gore-Tex Primary&quot;</span>])
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:h2no</span>] = <span class="ruby-ivar">@workbook_bugs</span>.<span class="ruby-identifier">h2no</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;H2No&quot;</span>])
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:inseam</span>] = <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Inseam&quot;</span>]
+  
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:bluesign</span>] = <span class="ruby-ivar">@workbook_bugs</span>.<span class="ruby-identifier">bluesign</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Bluesign Approved&quot;</span>])
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:insulation</span>] = <span class="ruby-ivar">@workbook_bugs</span>.<span class="ruby-identifier">insulation</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Insulation&quot;</span>])
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:rise</span>] = <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Rise&quot;</span>]
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:regulator</span>] = <span class="ruby-ivar">@workbook_bugs</span>.<span class="ruby-identifier">boolean</span>(<span class="ruby-string">&quot;regulator&quot;</span>, <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Regulator Product&quot;</span>])
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:leg_silhouette</span>] = <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Leg Silhouette&quot;</span>]
+  <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:inseam_zipoff</span>] = <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Inseam - Zip-Off Shorts&quot;</span>]
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Material Description (Edit)&quot;</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Material Description (Edit)&quot;</span>].<span class="ruby-identifier">eql?</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:material_desc</span>] = <span class="ruby-string">&quot;No Material Description in PLM!&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:material_desc</span>] = <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Material Description (Edit)&quot;</span>]
+  <span class="ruby-keyword">end</span>
+     
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- base_information-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- base_information-method -->
+
+    
+      <div id="method-i-insert_colorway" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">insert_colorway</span><span
+            class="method-args">(plm_color_data)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="insert_colorway-source">
+            <pre><span class="ruby-comment"># File lib/workbook/workbook_product.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">insert_colorway</span>(<span class="ruby-identifier">plm_color_data</span>)
+  
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">plm_color_data</span>[<span class="ruby-string">&quot;Color Placement 1&quot;</span>]
+  <span class="ruby-identifier">alpha</span> = <span class="ruby-identifier">plm_color_data</span>[<span class="ruby-string">&quot;AS400 Default Colorway Alpha Label&quot;</span>]
+  <span class="ruby-identifier">number</span> = <span class="ruby-identifier">plm_color_data</span>[<span class="ruby-string">&quot;Color Numeric&quot;</span>]
+  
+  <span class="ruby-ivar">@colorways</span>.<span class="ruby-identifier">insert_colorway</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">alpha</span>, <span class="ruby-identifier">number</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- insert_colorway-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- insert_colorway-method -->
+
+    
+      <div id="method-i-usb_information" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">usb_information</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="usb_information-source">
+            <pre><span class="ruby-comment"># File lib/workbook/workbook_product.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">usb_information</span>
+  
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Delivery Date (Ex-DC)&quot;</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:delivery_date</span>] = <span class="ruby-string">&quot;0/0/0&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@product_data</span>[<span class="ruby-value">:delivery_date</span>] = <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Delivery Date (Ex-DC)&quot;</span>]
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-ivar">@features</span>.<span class="ruby-identifier">add_feature</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 1&quot;</span>], <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 1 - Revised&quot;</span>])
+  <span class="ruby-ivar">@features</span>.<span class="ruby-identifier">add_feature</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 2&quot;</span>], <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 2 - Revised&quot;</span>])
+  <span class="ruby-ivar">@features</span>.<span class="ruby-identifier">add_feature</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 3&quot;</span>], <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 3 - Revised&quot;</span>])
+  <span class="ruby-ivar">@features</span>.<span class="ruby-identifier">add_feature</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 4&quot;</span>], <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 4 - Revised&quot;</span>])
+  <span class="ruby-ivar">@features</span>.<span class="ruby-identifier">add_feature</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 5&quot;</span>], <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 5 - Revised&quot;</span>])
+  <span class="ruby-ivar">@features</span>.<span class="ruby-identifier">add_feature</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 6&quot;</span>], <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 6 - Revised&quot;</span>])
+  <span class="ruby-ivar">@features</span>.<span class="ruby-identifier">add_feature</span>(<span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 7&quot;</span>], <span class="ruby-ivar">@plm_data</span>[<span class="ruby-string">&quot;Workbook Feature 7 - Revised&quot;</span>])
+      
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- usb_information-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- usb_information-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

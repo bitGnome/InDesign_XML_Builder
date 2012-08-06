@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Joker - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/hangtags/joker.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-format_rise_fit_leg">#format_rise_fit_leg</a>
+    
+    <li><a href="#method-i-format_rm">#format_rm</a>
+    
+    <li><a href="#method-i-format_sizes">#format_sizes</a>
+    
+    <li><a href="#method-i-format_spec_line">#format_spec_line</a>
+    
+    <li><a href="#method-i-format_tag">#format_tag</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./README.html">README</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Bugs.html">Bugs</a>
+  
+    <li><a href="./BuildJokerXml.html">BuildJokerXml</a>
+  
+    <li><a href="./BuildXml.html">BuildXml</a>
+  
+    <li><a href="./CatalogFPO.html">CatalogFPO</a>
+  
+    <li><a href="./CatalogProduct.html">CatalogProduct</a>
+  
+    <li><a href="./Colorway.html">Colorway</a>
+  
+    <li><a href="./ColorwayParse.html">ColorwayParse</a>
+  
+    <li><a href="./CountryOfOrigin.html">CountryOfOrigin</a>
+  
+    <li><a href="./File.html">File</a>
+  
+    <li><a href="./Fit.html">Fit</a>
+  
+    <li><a href="./ImportCsv.html">ImportCsv</a>
+  
+    <li><a href="./Joker.html">Joker</a>
+  
+    <li><a href="./JokerCsvParse.html">JokerCsvParse</a>
+  
+    <li><a href="./JokerTemplateBuilder.html">JokerTemplateBuilder</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./ParsePlm.html">ParsePlm</a>
+  
+    <li><a href="./ParseThumbnail.html">ParseThumbnail</a>
+  
+    <li><a href="./ParseWorkbookCsv.html">ParseWorkbookCsv</a>
+  
+    <li><a href="./PlmData.html">PlmData</a>
+  
+    <li><a href="./ProductColorways.html">ProductColorways</a>
+  
+    <li><a href="./ProductImagePull.html">ProductImagePull</a>
+  
+    <li><a href="./Rise.html">Rise</a>
+  
+    <li><a href="./SizeRange.html">SizeRange</a>
+  
+    <li><a href="./String.html">String</a>
+  
+    <li><a href="./TestSizeRange.html">TestSizeRange</a>
+  
+    <li><a href="./ValidatePath.html">ValidatePath</a>
+  
+    <li><a href="./Weight.html">Weight</a>
+  
+    <li><a href="./WorkbookBugs.html">WorkbookBugs</a>
+  
+    <li><a href="./WorkbookFeatures.html">WorkbookFeatures</a>
+  
+    <li><a href="./WorkbookProduct.html">WorkbookProduct</a>
+  
+    <li><a href="./WorkbookXml.html">WorkbookXml</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Joker</h1>
+
+  <div id="description" class="description">
+    
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-display_size" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">display_size</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-e_style" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">e_style</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-product_name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">product_name</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-rise_fit_leg" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">rise_fit_leg</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-rm_information" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">rm_information</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-rm_number" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">rm_number</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-rm_on_tag" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">rm_on_tag</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-size_range" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">size_range</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-spec_line" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">spec_line</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-style_number" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">style_number</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-upf" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">upf</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(data)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/hangtags/joker.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">data</span>)
+  
+  <span class="ruby-ivar">@womens_sizes</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@womens_sizes</span>[<span class="ruby-string">'24'</span>] = <span class="ruby-string">&quot;00&quot;</span>
+  <span class="ruby-ivar">@womens_sizes</span>[<span class="ruby-string">'25'</span>] = <span class="ruby-string">&quot;0&quot;</span>
+  <span class="ruby-ivar">@womens_sizes</span>[<span class="ruby-string">'26'</span>] = <span class="ruby-string">&quot;2&quot;</span>
+  <span class="ruby-ivar">@womens_sizes</span>[<span class="ruby-string">'27'</span>] = <span class="ruby-string">&quot;4&quot;</span>
+  <span class="ruby-ivar">@womens_sizes</span>[<span class="ruby-string">'28'</span>] = <span class="ruby-string">&quot;6&quot;</span>
+  <span class="ruby-ivar">@womens_sizes</span>[<span class="ruby-string">'29'</span>] = <span class="ruby-string">&quot;8&quot;</span>
+  <span class="ruby-ivar">@womens_sizes</span>[<span class="ruby-string">'30'</span>] = <span class="ruby-string">&quot;10&quot;</span>
+  <span class="ruby-ivar">@womens_sizes</span>[<span class="ruby-string">'31'</span>] = <span class="ruby-string">&quot;12&quot;</span>
+  <span class="ruby-ivar">@womens_sizes</span>[<span class="ruby-string">'32'</span>] = <span class="ruby-string">&quot;14&quot;</span>
+  
+  <span class="ruby-ivar">@product_name</span> = <span class="ruby-identifier">data</span>[<span class="ruby-string">&quot;Marketing Name&quot;</span>].<span class="ruby-identifier">remove_double_quotes</span>
+  <span class="ruby-ivar">@product_name</span> = <span class="ruby-ivar">@product_name</span>.<span class="ruby-identifier">encode_smart_quotes</span>
+  <span class="ruby-ivar">@gender</span> = <span class="ruby-ivar">@product_name</span>.<span class="ruby-identifier">get_gender</span>
+  
+  <span class="ruby-ivar">@style_number</span> = <span class="ruby-identifier">data</span>[<span class="ruby-string">&quot;Style Number&quot;</span>]
+
+  <span class="ruby-identifier">sizes</span> = <span class="ruby-constant">SizeRange</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">size_array</span> = <span class="ruby-identifier">sizes</span>.<span class="ruby-identifier">joker_format</span>(<span class="ruby-identifier">data</span>[<span class="ruby-string">&quot;Size Range&quot;</span>])
+  <span class="ruby-identifier">size_range_format</span> = <span class="ruby-identifier">format_sizes</span>(<span class="ruby-identifier">size_array</span>, <span class="ruby-ivar">@gender</span>)
+  <span class="ruby-ivar">@size_range</span> = <span class="ruby-identifier">size_range_format</span>
+  <span class="ruby-ivar">@display_size</span> = <span class="ruby-ivar">@size_range</span>[<span class="ruby-value">0</span>]
+  
+  <span class="ruby-ivar">@rise_fit_leg</span> = <span class="ruby-identifier">format_rise_fit_leg</span>(<span class="ruby-identifier">data</span>[<span class="ruby-string">&quot;Rise&quot;</span>], <span class="ruby-identifier">data</span>[<span class="ruby-string">&quot;Fit&quot;</span>], <span class="ruby-identifier">data</span>[<span class="ruby-string">&quot;Leg Silhouette&quot;</span>])
+  
+  <span class="ruby-ivar">@inseam</span> = <span class="ruby-identifier">data</span>[<span class="ruby-string">&quot;Inseam&quot;</span>]
+  <span class="ruby-ivar">@inseam_zipoff</span> = <span class="ruby-identifier">data</span>[<span class="ruby-string">&quot;Inseam - Zip-Off Shorts&quot;</span>]
+  <span class="ruby-comment">#@spec_line = format_spec_line(@display_size, @inseam, @inseam_zipoff)</span>
+  
+  <span class="ruby-identifier">format_tag</span>(<span class="ruby-identifier">data</span>[<span class="ruby-string">&quot;Hangtag/Package&quot;</span>])
+  
+  <span class="ruby-ivar">@rm_information</span> = <span class="ruby-identifier">data</span>[<span class="ruby-node">&quot;Hangtag RM #1&quot;</span>]
+  <span class="ruby-identifier">rm_split</span> = <span class="ruby-ivar">@rm_information</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\s&quot;</span>)
+  <span class="ruby-ivar">@rm_number</span> = <span class="ruby-identifier">rm_split</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-ivar">@rm_on_tag</span> = <span class="ruby-identifier">format_rm</span>(<span class="ruby-ivar">@rm_number</span>)
+  
+  <span class="ruby-ivar">@upf</span> = <span class="ruby-identifier">data</span>[<span class="ruby-string">&quot;UPF Value&quot;</span>]
+  <span class="ruby-ivar">@e_style</span> = <span class="ruby-identifier">data</span>[<span class="ruby-string">&quot;E Style&quot;</span>]
+  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-format_rise_fit_leg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_rise_fit_leg</span><span
+            class="method-args">(rise, fit, leg)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="format_rise_fit_leg-source">
+            <pre><span class="ruby-comment"># File lib/hangtags/joker.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_rise_fit_leg</span>(<span class="ruby-identifier">rise</span>, <span class="ruby-identifier">fit</span>, <span class="ruby-identifier">leg</span>)
+  
+  <span class="ruby-identifier">rise_fit_leg_text</span> = <span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>
+  
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">rise</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">rise_format</span> = <span class="ruby-constant">Rise</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">rise</span>)
+    <span class="ruby-identifier">rise_fit_leg_text</span> = <span class="ruby-identifier">rise_format</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;&amp;#8195;&quot;</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">fit</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">fit_format</span> = <span class="ruby-constant">Fit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">fit</span>)
+    <span class="ruby-identifier">rise_fit_leg_text</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">fit_format</span>.<span class="ruby-identifier">to_s</span><span class="ruby-operator">+</span> <span class="ruby-node">&quot;&amp;#8195;&quot;</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">leg</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-identifier">rise_fit_leg_text</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">leg</span> 
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">rise_fit_leg_text</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-node">%r\&amp;#8195\;$/</span>, <span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">rise_fit_leg_text</span>.<span class="ruby-identifier">strip</span>
+   
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- format_rise_fit_leg-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format_rise_fit_leg-method -->
+
+    
+      <div id="method-i-format_rm" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_rm</span><span
+            class="method-args">(rm_number)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="format_rm-source">
+            <pre><span class="ruby-comment"># File lib/hangtags/joker.rb, line 200</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_rm</span>(<span class="ruby-identifier">rm_number</span>)
+  
+  <span class="ruby-comment">#Current Format for the RM number on the tag as follows</span>
+  <span class="ruby-comment"># ###&lt;BOLD Style Number&gt;##</span>
+  
+  <span class="ruby-identifier">rm_format</span> = <span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>
+  
+  <span class="ruby-identifier">rm_numbers</span> = <span class="ruby-identifier">rm_number</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">%r/</span>)
+  
+  (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">4</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">index</span><span class="ruby-operator">|</span> <span class="ruby-identifier">rm_format</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">rm_numbers</span>[<span class="ruby-identifier">index</span>] }
+  
+  <span class="ruby-identifier">rm_format</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;&lt;rm_bold aid:cstyle=\&quot;RM_Bold\&quot;&gt;&quot;</span>
+  (<span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">9</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">index</span><span class="ruby-operator">|</span> <span class="ruby-identifier">rm_format</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">rm_numbers</span>[<span class="ruby-identifier">index</span>]}
+  <span class="ruby-identifier">rm_format</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;&lt;/rm_bold&gt;&quot;</span>
+  
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">rm_format</span>
+  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- format_rm-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format_rm-method -->
+
+    
+      <div id="method-i-format_sizes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_sizes</span><span
+            class="method-args">(size_range, gender)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="format_sizes-source">
+            <pre><span class="ruby-comment"># File lib/hangtags/joker.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_sizes</span>(<span class="ruby-identifier">size_range</span>, <span class="ruby-identifier">gender</span>)
+  
+  <span class="ruby-identifier">format_size_range</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  
+  <span class="ruby-identifier">size_range</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">size</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># Do not add inch marks to womens sizes 0 - 14</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">size</span>.<span class="ruby-identifier">is_a_number?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">size</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">20</span>
+      
+      <span class="ruby-identifier">size_string</span> = <span class="ruby-identifier">size</span> <span class="ruby-operator">+</span><span class="ruby-string">&quot;\&quot;&quot;</span>
+      
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">gender</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-string">&quot;women&quot;</span>)
+        <span class="ruby-identifier">size_string</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot; (#{@womens_sizes[size]})&quot;</span>
+      <span class="ruby-keyword">end</span>
+      
+      <span class="ruby-identifier">format_size_range</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">size_string</span>
+      
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">format_size_range</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">size</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">format_size_range</span>
+  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- format_sizes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format_sizes-method -->
+
+    
+      <div id="method-i-format_spec_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_spec_line</span><span
+            class="method-args">(size, inseam, inseam_type)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="format_spec_line-source">
+            <pre><span class="ruby-comment"># File lib/hangtags/joker.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_spec_line</span>(<span class="ruby-identifier">size</span>, <span class="ruby-identifier">inseam</span>, <span class="ruby-identifier">inseam_type</span>)
+  
+  <span class="ruby-identifier">spec_line_text</span> = <span class="ruby-string">&quot;size: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">size</span>
+  
+  <span class="ruby-comment">## Still need to address what to do about zip-off inseam</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">inseam</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-string">&quot;&quot;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">inseam_type</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-string">&quot;pants&quot;</span>)
+      <span class="ruby-identifier">spec_line_text</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;&amp;#8195;inseam: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">inseam</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\&quot;&quot;</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">inseam_type</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-string">&quot;shorts&quot;</span>)
+      <span class="ruby-identifier">spec_line_text</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;&amp;#8195;short inseam: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">inseam</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\&quot;&quot;</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">inseam_type</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-string">&quot;skirt&quot;</span>)
+      <span class="ruby-identifier">spec_line_text</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;&amp;#8195;length &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">inseam</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\&quot;&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">spec_line_text</span>
+  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- format_spec_line-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format_spec_line-method -->
+
+    
+      <div id="method-i-format_tag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_tag</span><span
+            class="method-args">(hangtag_package)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="format_tag-source">
+            <pre><span class="ruby-comment"># File lib/hangtags/joker.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_tag</span>(<span class="ruby-identifier">hangtag_package</span>)
+  
+  <span class="ruby-identifier">ht_pkg_split</span> = <span class="ruby-identifier">hangtag_package</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;|&quot;</span>)
+  <span class="ruby-identifier">tag_type</span> = <span class="ruby-identifier">ht_pkg_split</span>[<span class="ruby-value">1</span>]
+  
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">tag_type</span>.<span class="ruby-identifier">upcase</span>
+  <span class="ruby-comment">#puts &quot;M's 1-length, Open &amp; 32&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;A&quot;</span>
+    <span class="ruby-ivar">@spec_line</span> = <span class="ruby-identifier">format_spec_line</span>(<span class="ruby-ivar">@display_size</span>, <span class="ruby-ivar">@inseam</span>, <span class="ruby-string">&quot;no_inseam&quot;</span>)
+    
+  <span class="ruby-comment"># M's 3-length :: Pants(B), Cords(C) and Jeans(D).</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;B&quot;</span>, <span class="ruby-string">&quot;C&quot;</span>, <span class="ruby-string">&quot;D&quot;</span>
+    
+    <span class="ruby-identifier">product_name_split</span> = <span class="ruby-ivar">@product_name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;-&quot;</span>)
+    <span class="ruby-identifier">product_name_root</span> = <span class="ruby-identifier">product_name_split</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">strip</span>
+    <span class="ruby-ivar">@product_name</span> = <span class="ruby-identifier">product_name_root</span>
+    
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">product_name_split</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">nil?</span> 
+      
+      <span class="ruby-identifier">product_length</span> = <span class="ruby-identifier">product_name_split</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>
+      
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">product_length</span>.<span class="ruby-identifier">downcase</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;short&quot;</span>
+        <span class="ruby-ivar">@product_name</span> = <span class="ruby-identifier">product_name_root</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; - Short&quot;</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;long&quot;</span>
+        <span class="ruby-ivar">@product_name</span> = <span class="ruby-identifier">product_name_root</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; - Long&quot;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@product_name</span> = <span class="ruby-identifier">product_name_root</span>
+      <span class="ruby-keyword">end</span>        
+      
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-ivar">@display_size</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot; x &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@inseam</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;\&quot;&quot;</span>
+    <span class="ruby-ivar">@spec_line</span> = <span class="ruby-identifier">format_spec_line</span>(<span class="ruby-ivar">@display_size</span>, <span class="ruby-ivar">@inseam</span>, <span class="ruby-string">&quot;no_inseam&quot;</span>)
+    
+  <span class="ruby-comment"># M's shorts and board shorts</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;E&quot;</span>
+    <span class="ruby-ivar">@spec_line</span> = <span class="ruby-identifier">format_spec_line</span>(<span class="ruby-ivar">@display_size</span>, <span class="ruby-ivar">@inseam</span>, <span class="ruby-string">&quot;pants&quot;</span>)
+    
+  <span class="ruby-comment"># M's Zip-Off Pants</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;F&quot;</span>
+    
+    <span class="ruby-identifier">product_name_split</span> = <span class="ruby-ivar">@product_name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;-&quot;</span>)
+    <span class="ruby-identifier">product_name_root</span> = <span class="ruby-identifier">product_name_split</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">strip</span>
+    <span class="ruby-identifier">product_length</span> = <span class="ruby-identifier">product_name_split</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">strip</span>
+    <span class="ruby-ivar">@product_name</span> = <span class="ruby-identifier">product_name_root</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot; - &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">product_length</span>
+    
+    <span class="ruby-ivar">@spec_line</span> = <span class="ruby-identifier">format_spec_line</span>(<span class="ruby-ivar">@display_size</span>, <span class="ruby-ivar">@inseam_zipoff</span>, <span class="ruby-string">&quot;shorts&quot;</span>)
+    
+  <span class="ruby-comment"># W's 1-length, Open</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;G&quot;</span>
+    <span class="ruby-ivar">@spec_line</span> = <span class="ruby-identifier">format_spec_line</span>(<span class="ruby-ivar">@display_size</span>, <span class="ruby-ivar">@inseam</span>, <span class="ruby-string">&quot;pants&quot;</span>)
+  
+  <span class="ruby-comment"># W's 3-lengths</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;H&quot;</span>
+    <span class="ruby-ivar">@spec_line</span> = <span class="ruby-identifier">format_spec_line</span>(<span class="ruby-ivar">@display_size</span>, <span class="ruby-ivar">@inseam</span>, <span class="ruby-string">&quot;pants&quot;</span>)
+  
+  <span class="ruby-comment"># W's Denium and Cords</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;I&quot;</span>
+    <span class="ruby-ivar">@spec_line</span> = <span class="ruby-identifier">format_spec_line</span>(<span class="ruby-ivar">@display_size</span>, <span class="ruby-ivar">@inseam</span>, <span class="ruby-string">&quot;pants&quot;</span>)
+    
+  <span class="ruby-comment"># W's Shorts and Board Shorts</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;J&quot;</span>
+    <span class="ruby-ivar">@spec_line</span> = <span class="ruby-identifier">format_spec_line</span>(<span class="ruby-ivar">@display_size</span>, <span class="ruby-ivar">@inseam</span>, <span class="ruby-string">&quot;pants&quot;</span>)
+  
+  <span class="ruby-comment"># W's Skirts</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;K&quot;</span>
+    <span class="ruby-ivar">@spec_line</span> = <span class="ruby-identifier">format_spec_line</span>(<span class="ruby-ivar">@display_size</span>, <span class="ruby-ivar">@inseam</span>, <span class="ruby-string">&quot;skirt&quot;</span>)
+  
+  <span class="ruby-comment"># W's Zip-Off Pants </span>
+  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;L&quot;</span>
+    <span class="ruby-ivar">@spec_line</span> = <span class="ruby-identifier">format_spec_line</span>(<span class="ruby-ivar">@display_size</span>, <span class="ruby-ivar">@inseam_zipoff</span>, <span class="ruby-string">&quot;shorts&quot;</span>)
+    
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Tag type not found for #{@product_name} = #{@style_number}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- format_tag-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- format_tag-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

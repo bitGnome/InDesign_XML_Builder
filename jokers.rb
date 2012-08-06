@@ -5,7 +5,7 @@
   require_relative 'lib/hangtags/build_joker_xml'
   require_relative 'lib/hangtags/joker_template_builder'
 
-  print "Path to joker csv? "
+  print "Path to the joker csv? "
   joker_fileName = gets.chomp
   
   begin

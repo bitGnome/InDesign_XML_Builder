@@ -39,13 +39,13 @@ class ProductImagePull
               
         unless imageFound
           if path.include? imageAlpha
-            FileUtils.cp(path, "./product_images/#{product_image_name}")
+            FileUtils.cp(path, "./product_images/#{product_image_name}" )
             imageFound = true
           elsif path.include? imageColorNum
-            FileUtils.cp(path, "./product_images/#{product_image_name}")
+            FileUtils.cp(path, "./product_images/#{product_image_name}" )
             imageFound = true
           elsif ( (path.include? style_number) && (!featureColorOnly) )
-            FileUtils.cp(path, "./product_images/#{product_image_name}")
+            FileUtils.cp(path, "./product_images/#{product_image_name}" )
             imageFound = true
             
           end
