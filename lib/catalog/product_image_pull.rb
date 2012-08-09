@@ -27,9 +27,9 @@ class ProductImagePull
     
     # If only the feature color is pulled append _alpha to the product image
     if featureColorOnly
-      product_image_name = "#{style_number}_#{alpha}.jpg"
+      product_image_name = "#{style_number.strip}_#{alpha.strip}.jpg"
     else
-      product_image_name = "#{style_number}.jpg"
+      product_image_name = "#{style_number.strip}.jpg"
     end
           
     # Loop through the imagePathList and look for 

@@ -113,6 +113,8 @@ if __FILE__ == $0
     # Pull all the product images  
     product.colorways.each do | page_number, colorways |
       
+      #puts product.inspect
+      
       colorways.each do | alpha |
                 
         begin
@@ -122,7 +124,7 @@ if __FILE__ == $0
         end   
          
         findResult = corpSalesJpeg.get_image(page_number, alpha, colorNum, true)
-        unless findResult then missing_products << "#{page_number}_#{alpha}!" end
+        unless findResult then missing_products << "#{page_number}_#{alpha} - #{product.plm_data.plmHash[:productName]}" end
        
       end    
     end
