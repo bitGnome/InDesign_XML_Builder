@@ -7,5 +7,3 @@ The InDesign_XML_Builder package is a set of Ruby scripts that can be used to bu
 = Getting the source code
 The source code can be obtained from the public git repository.
 git clone git@github.com:bitGnome/InDesign_XML_Builder.git 
-
-* report any bugs to dev@piattstudios.com
