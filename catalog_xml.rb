@@ -91,6 +91,14 @@ if __FILE__ == $0
      
     pullFPOImages = true
     
+    # Set up the image_path
+    image_paths = Array.new
+    image_paths << fall_product_image_path.path;
+    image_paths << spring_product_image_path.path;
+    
+    # Set up the CatalogFPO object. This will handle finding and copying the FPO image into the FPO folder
+    catalogFPO = ProductImagePull.new(image_paths)
+    
   else 
     pullFPOImages = false
   end
@@ -132,9 +140,6 @@ if __FILE__ == $0
   missing_images = File.new("./missing_images.txt", "w")
   
   xmlFilePath = "./XML/"
-  image_paths = Array.new
-  image_paths << fall_product_image_path.path;
-  image_paths << spring_product_image_path.path;
   
   puts ("plmData_path = #{plmData_path.path}")
   
@@ -169,9 +174,6 @@ if __FILE__ == $0
   end
     
   colorwayInfo = ColorwayParse.new(colorwayData)
-  
-  # Set up the CatalogFPO object. This will handle finding and copying the FPO image into the FPO folder
-  catalogFPO = ProductImagePull.new(image_paths)
   
   thumbNail.products.each do | style_number, product | 
         
