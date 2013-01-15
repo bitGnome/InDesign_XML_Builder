@@ -15,7 +15,7 @@ class Bugs
     @bugInfo += "eFiber " if @bugs[:eFiber] == "Yes"
     @bugInfo += "polartec " if @bugs[:polartec] == "Yes"
     @bugInfo += "bluesign " if @bugs[:bluesign] == "Fabric"
-    @bugInfo += @bugs[:upf] if @bugs[:upf] != nil
+    @bugInfo += @bugs[:upf] if @bugs[:upf] != nil 
        
     return @bugInfo
   

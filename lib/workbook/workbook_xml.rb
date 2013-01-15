@@ -159,7 +159,7 @@ class WorkbookXml
           
           @xml_file.write("\n")
           
-          xml.Colorwrays("aid:pstyle"  => colorways) do
+          xml.Colorways("aid:pstyle"  => colorways) do
             product.colorways.number.each do |alpha, number|
               xml.tag!(alpha) {
                 |node|  node.alpha( alpha )
