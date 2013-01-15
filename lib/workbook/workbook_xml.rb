@@ -30,7 +30,7 @@ class WorkbookXml
     weight = "Weight"
     rise = "Rise"
     leg_sil = "Leg Silhouette"
-    fabric_sizes_bold = "Fabric_Sizes_Bold"
+    fabric_bold = "Fabric_Bold"
     
     xml = Builder::XmlMarkup.new(:target => @xml_file, :indent => 0)
     xml.instruct! :xml, :version => "1.0", :encoding => "UTF-8"
@@ -146,7 +146,7 @@ class WorkbookXml
                             
                             overview << "&#13;"
                             
-                            overview.fabric_header("aid:cstyle"  => fabric_sizes_bold ) {
+                            overview.fabric_header("aid:cstyle"  => fabric_bold ) {
                               |fabric_text| fabric_text << "FABRIC: "
                             }
 
@@ -199,7 +199,7 @@ class WorkbookXml
     weight = "Weight"
     rise = "Rise"
     leg_sil = "Leg Silhouette"
-    fabric_style = "Fabric_Sizes_Bold"
+    fabric_style = "Fabric_Bold"
     feature_revised = "feature_revised"
     
     xml = Builder::XmlMarkup.new(:target => @xml_file, :indent => 0)
