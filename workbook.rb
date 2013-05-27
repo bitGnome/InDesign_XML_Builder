@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
-# A comment
 require 'fileutils'
-
+# something could be somenthing
 require_relative 'lib/workbook/parse_workbook_csv'
 require_relative 'lib/workbook/workbook_bugs'
 require_relative 'lib/workbook/workbook_xml'
